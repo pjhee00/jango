@@ -74,6 +74,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = (
+    '...................................'
+    'phople.middleware.DisableCSRF',
+)
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
