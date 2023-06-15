@@ -14,6 +14,14 @@ from pathlib import Path
 
 import environ
 import os
+import socket
+
+def get_ipaddress():
+    host_name = socket.gethostname()
+    ip_address = socket.gethostbyname(host_name)
+    return "http://"+ip_address
+
+CSRF_TRUSTED_ORIGINS = [get_ipaddress()]
 
 from django.urls import reverse_lazy
 
@@ -155,5 +163,3 @@ LOGIN_REDIRECT_URL = '/'
 
 # 로그아웃시 이동하는 URL
 LOGOUT_REDIRECT_URL = '/'
-
-CSRF_TRUSTED_ORIGINS = ['https://*.mydomain.com','https://*.127.0.0.1']
